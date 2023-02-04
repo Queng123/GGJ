@@ -17,7 +17,7 @@ function shovel.update(dt, speed)
     x = x - speed * dt
 
     if x < -300 then -- pour que la pelle revienne a sa position de depart a droite de l'ecran
-        x = love.graphics.getWidth() + spade:getWidth() * scale - 200
+        x = love.graphics.getWidth() + spade:getWidth() * scale - 100
         y = love.graphics.getHeight() - spade:getHeight() * scale - 800
         isPassed = false -- savoir si la pelle est passé par le point de descente
         isSpade = false -- savoir si la pelle est en train de se baisser
