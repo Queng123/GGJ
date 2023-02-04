@@ -1,20 +1,19 @@
-spade = {}
+shovel = {}
 
 local scale = 0.25
 
-function spade.load()
+function shovel.load()
     spade = love.graphics.newImage("assets/pelle.png")
     caracter = love.graphics.newImage("assets/caracter.png")
     x = -255
     y = love.graphics.getHeight() - spade:getHeight() * scale - 800
-    speed = 200
     isPassed = false
     isSpade = false
     isntSpade = false
     randomPoint = love.math.random(500, 1700)
 end
 
-function spade.update(dt)
+function shovel.update(dt, speed)
     x = x - speed * dt
 
     if x < -300 then -- pour que la pelle revienne a sa position de depart a droite de l'ecran
@@ -46,7 +45,7 @@ function spade.update(dt)
 
 end
 
-function spade.draw()
+function shovel.draw()
     love.graphics.draw(spade, x, y, 0, scale, scale)
     love.graphics.draw(caracter, x - 550, love.graphics.getHeight() - spade:getHeight() * scale - 1000, 0, 2, 2)
 end
