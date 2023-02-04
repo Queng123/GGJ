@@ -1,7 +1,6 @@
 obstacles = {}
 
 function obstacles.load()
-    love.window.setMode(1920, 1080)
     screen_height = love.graphics.getHeight()
     s_rock = love.graphics.newImage("assets/rock.png")
     s_water = love.graphics.newImage("assets/water.png")
@@ -22,7 +21,7 @@ end
     if rock_timer >= rock_spawn_interval then
         rock_timer = rock_timer - rock_spawn_interval
         rock_x = love.graphics.getWidth()
-        rock_y = love.math.random(0, screen_height - s_rock:getHeight())
+        rock_y = love.math.random(300, screen_height - s_rock:getHeight())
         rock_speed = 200
         table.insert(rocks, {x = rock_x, y = rock_y, speed = rock_speed})
     end
@@ -36,7 +35,7 @@ end
     if water_timer >= water_spawn_interval then
         water_timer = water_timer - water_spawn_interval
         water_x = love.graphics.getWidth()
-        water_y = love.math.random(0, screen_height - s_water:getHeight())
+        water_y = love.math.random(300, screen_height - s_water:getHeight())
         water_speed = 200
         table.insert(waters, {x = water_x, y = water_y, speed = water_speed})
     end

@@ -1,5 +1,6 @@
 require "shovel"
 require "parallaxe"
+require "obstacles"
 
 
 function love.load()
@@ -10,14 +11,17 @@ function love.load()
 
     parallaxe.load()
     shovel.load()
+    obstacles.load()
 end
 
 function love.update(dt)
     parallaxe.update(dt, speed)
     shovel.update(dt, speed)
+    obstacles.update(dt)
 end
 
 function love.draw()
     parallaxe.draw()
+    obstacles.draw()
     shovel.draw()
 end
