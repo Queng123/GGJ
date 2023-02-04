@@ -126,6 +126,7 @@ function love.draw()
         obstacles.draw()
         shovel.draw()
         root.draw()
+        love.graphics.printf(score, 50, 50, 150)
     else
         Button.draw(resumeButton)
         Button.draw(quitButton)

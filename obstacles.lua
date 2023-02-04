@@ -58,5 +58,4 @@ function obstacles.draw()
         love.graphics.draw(s_water, water.x, water.y)
     end
     love.graphics.setFont(font)
-    love.graphics.printf(score, 50, 50, 150)
 end
