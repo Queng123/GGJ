@@ -1,4 +1,3 @@
-
 function love.load()
     require "parallax"
     parallax.load()
