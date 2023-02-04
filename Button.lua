@@ -1,6 +1,71 @@
 Button = {}
 
-font = love.graphics.newFont(30)
+local function closeAllButton()
+    resumeButton.active = false
+    quitButton.active = false
+    musicSlider.active = false
+end
+
+local function openAllButton()
+    resumeButton.active = true
+    quitButton.active = true
+    musicSlider.active = true
+end
+
+local function doNothing()
+end
+
+local function closePause()
+    closeAllButton()
+    gaming = true
+end
+
+local function getReferenceMusicSlider()
+    return love.audio.getVolume(music)
+end
+
+local function updateMusicSlider(button, x, y)
+    local newVolume = (x - button.pos.x) / button.size.x
+    if newVolume < 0 then
+        newVolume = 0
+    elseif newVolume > 1 then
+        newVolume = 1
+    end
+    love.audio.setVolume(newVolume)
+end
+
+local function closeGame()
+    love.event.quit()
+end
+
+local function createClassicButton(pos, size, stringText, action)
+    local button = {}
+    button.pos = pos
+    button.size = size
+    button.stringText = stringText
+    button.text = love.graphics.newText(font, stringText)
+    button.active = true
+    button.action = action
+    button.type = ButtonType.Classic
+    button.isPressed = false
+    button.update = doNothing
+    return button
+end
+
+local function createSliderButton(pos, size, stringText, reference, action, update)
+    local button = {}
+    button.pos = pos
+    button.size = size
+    button.stringText = stringText
+    button.text = love.graphics.newText(font, stringText)
+    button.active = true
+    button.action = action
+    button.type = ButtonType.Slider
+    button.reference = reference
+    button.isPressed = false
+    button.update = update
+    return button
+end
 
 local function DrawClassicButton(button)
     love.graphics.push()
@@ -28,8 +93,18 @@ local function DrawSliderButton(button)
     love.graphics.pop()
 end
 
-ButtonType = {Classic = "Classic", Slider = "Slider"}
-DrawButtonFunction = {Classic = DrawClassicButton, Slider = DrawSliderButton}
+function Button.load()
+    font = love.graphics.newFont(30)
+
+    ButtonType = {Classic = "Classic", Slider = "Slider"}
+    DrawButtonFunction = {Classic = DrawClassicButton, Slider = DrawSliderButton}
+
+    resumeButton = createClassicButton({x = 1920 / 2 - 100, y = 350}, {x = 200, y = 100}, "Resume", closePause)
+    musicSlider = createSliderButton({x = 1920 / 2 - 100, y = 550}, {x = 200, y = 20}, "Music", getReferenceMusicSlider, doNothing, updateMusicSlider)
+    quitButton = createClassicButton({x = 1920 / 2 - 100, y = 650}, {x = 200, y = 100}, "Quit", closeGame)
+end
+
+
 
 function Button.draw(button)
     if (button.active) then
@@ -46,7 +121,6 @@ local function isCollide(pos, rect)
     end
 end
 
-
 function Button.mousepressed(button, x, y, btn, istouch)
     if btn == 1 then
         if (isCollide({x = x, y = y},
@@ -55,7 +129,6 @@ function Button.mousepressed(button, x, y, btn, istouch)
                        dx = button.size.x,
                        dy = button.size.y})) then
             button.isPressed = true
-            print(button.stringText, "is pressed")
             if button.active then
                 button.action()
             end
@@ -66,14 +139,23 @@ end
 function Button.mousereleased(button, x, y, btn)
     if btn == 1 then
         button.isPressed = false
-
-        print(button.stringText, "is released")
     end
 end
 
 function Button.mousemoved(button, x, y, dx, dy)
     if (button.isPressed and button.type == ButtonType.Slider) then
-        print(x,y)
         button.update(button, x, y)
+    end
+end
+
+function Button.keypressed(key)
+    if key == "escape" then
+        if gaming then
+            gaming = false
+            openAllButton()
+        else
+            gaming = true
+            closeAllButton()
+        end
     end
 end
