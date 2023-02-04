@@ -2,6 +2,7 @@ require "shovel"
 require "parallaxe"
 require "obstacles"
 require "Button"
+require "root"
 
 local function closeAllButton()
     resumeButton.active = false
@@ -107,6 +108,7 @@ function love.load()
     parallaxe.load()
     shovel.load()
     obstacles.load()
+    root.load()
 end
 
 function love.update(dt)
@@ -114,6 +116,7 @@ function love.update(dt)
         parallaxe.update(dt, speed)
         shovel.update(dt, speed)
         obstacles.update(dt)
+        root.update(dt, speed)
     end
 end
 
@@ -122,6 +125,7 @@ function love.draw()
         parallaxe.draw()
         obstacles.draw()
         shovel.draw()
+        root.draw()
     else
         Button.draw(resumeButton)
         Button.draw(quitButton)
