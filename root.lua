@@ -9,6 +9,9 @@ end
 
 function root.update(dt, speed)
     local mouseX, mouseY = love.mouse.getPosition()
+    if mouseY < 350 then
+        mouseY = 350
+    end
     local lastPoint = points[#points]
     local nextX = lastPoint.x + (mouseX - lastPoint.x) * dt
     local nextY = lastPoint.y + (mouseY - lastPoint.y) * dt
@@ -22,7 +25,10 @@ function root.update(dt, speed)
 end
 
 function root.draw()
+    love.graphics.setColor(70 / 256, 46 / 256, 1 / 256)
+    love.graphics.setLineWidth(10)
     for i = 1, #points - 1 do
         love.graphics.line(points[i].x, points[i].y, points[i + 1].x, points[i + 1].y)
     end
+    love.graphics.setColor(1, 1, 1)
 end
