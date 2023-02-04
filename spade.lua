@@ -1,8 +1,8 @@
-parallax = {}
+spade = {}
 
 local scale = 0.25
 
-function parallax.load()
+function spade.load()
     spade = love.graphics.newImage("assets/pelle.png")
     caracter = love.graphics.newImage("assets/caracter.png")
     x = -255
@@ -14,7 +14,7 @@ function parallax.load()
     randomPoint = love.math.random(500, 1700)
 end
 
-function parallax.update(dt)
+function spade.update(dt)
     x = x - speed * dt
 
     if x < -300 then -- pour que la pelle revienne a sa position de depart a droite de l'ecran
@@ -46,7 +46,7 @@ function parallax.update(dt)
 
 end
 
-function parallax.draw()
+function spade.draw()
     love.graphics.draw(spade, x, y, 0, scale, scale)
     love.graphics.draw(caracter, x - 550, love.graphics.getHeight() - spade:getHeight() * scale - 1000, 0, 2, 2)
 end
