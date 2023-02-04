@@ -2,8 +2,8 @@ function love.load()
     love.window.setMode(1920, 1080)
 end
 
-function love.draw()
+function love.update(dt)
 end
 
-function love.update(dt)
+function love.draw()
 end
