@@ -3,9 +3,8 @@ obstacles = {}
 function obstacles.load()
     screen_height = love.graphics.getHeight()
     s_rock1 = love.graphics.newImage("assets/stone3.png")
-    s_rock2 = love.graphics.newImage("assets/stone2.png")
+    s_rock2 = love.graphics.newImage("assets/stone4.png")
     s_water = love.graphics.newImage("assets/water.png")
-    s_tree = love.graphics.newImage("assets/tree.png")
     rocks = {}
     waters = {}
     rock_timer = 0
@@ -57,5 +56,4 @@ function obstacles.draw()
         love.graphics.draw(s_water, water.x, water.y, 0, 1, 1)
     end
     love.graphics.setFont(font)
-    love.graphics.draw(s_tree, -300, -750, 0, 3, 3)
 end
