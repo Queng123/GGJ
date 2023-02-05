@@ -1,8 +1,8 @@
-require "shovel"
-require "parallaxe"
-require "obstacles"
-require "Button"
-require "root"
+require "src/shovel"
+require "src/parallaxe"
+require "src/obstacles"
+require "src/Button"
+require "src/root"
 
 music = love.audio.newSource("audio.mp3", "stream")
 love.audio.setVolume(1)
