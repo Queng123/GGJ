@@ -1,6 +1,7 @@
 require "src/obstacles"
 require "src/shovel"
 require "src/root"
+require "src/highScore"
 
 Collision = {}
 
@@ -17,6 +18,16 @@ function Collision.checkCollision()
         points[#points].y >= rock.y and points[#points].y <= rock.y + 32 then
             gaming = false
             lose = true
+            if (score > highScore[1]) then
+                highScore = {score, highScore[1], highScore[2]}
+            elseif (score > highScore[2]) then
+                highScore = {highScore[1], score, highScore[2]}
+            elseif (score > highScore[3]) then
+                highScore = {highScore[1], highScore[2], score}
+            end
+            file_descriptor = io.open("save/score", "w")
+            file_descriptor:write(highScore[1] .. " " .. highScore[2] .. " " .. highScore[3])
+            file_descriptor:close()
         end
     end
     for i, point in ipairs(points) do
@@ -24,6 +35,16 @@ function Collision.checkCollision()
         point.y >= y_shovel and point.y <= y_shovel + 710 then
             gaming = false
             lose = true
+            if (score > highScore[1]) then
+                highScore = {score, highScore[1], highScore[2]}
+            elseif (score > highScore[2]) then
+                highScore = {highScore[1], score, highScore[2]}
+            elseif (score > highScore[3]) then
+                highScore = {highScore[1], highScore[2], score}
+            end
+            file_descriptor = io.open("save/score", "w")
+            file_descriptor:write(highScore[1] .. " " .. highScore[2] .. " " .. highScore[3])
+            file_descriptor:close()
         end
     end
 end

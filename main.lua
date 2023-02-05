@@ -5,6 +5,7 @@ require "src/Button"
 require "src/root"
 require "src/Collision"
 require "src/Gameover"
+require "src/highScore"
 
 music = love.audio.newSource("audio.mp3", "stream")
 love.audio.setVolume(1)
@@ -34,6 +35,7 @@ function love.load()
     obstacles.load()
     root.load()
     Button.load()
+    highScore.load()
 end
 
 function love.update(dt)
@@ -76,6 +78,16 @@ function love.draw()
         Button.draw(playSongButton)
         Button.draw(quitButton)
         Button.draw(musicSlider)
+        love.graphics.printf("High Score: ", 50, 700, 700)
+        love.graphics.printf(highScore[1] , 50, 750, 700)
+        love.graphics.printf(highScore[2] , 50, 800, 700)
+        love.graphics.printf(highScore[3] , 50, 850, 700)
+        love.graphics.printf("GitHub Crédits :", 1600, 600, 700)
+        love.graphics.printf("Queng123" , 1600, 650, 700)
+        love.graphics.printf("Miou-zora" , 1600, 700, 700)
+        love.graphics.printf("Kibatsu03" , 1600, 750, 700)
+        love.graphics.printf("FoxaxeWasTaken" , 1600, 800, 700)
+        love.graphics.printf("kimmaroe" , 1600, 850, 700)
     end
 end
 
