@@ -5,7 +5,7 @@ local scale = 0.25
 function shovel.load()
     spade = love.graphics.newImage("assets/pelle.png")
     caracter = love.graphics.newImage("assets/caracter.png")
-    x_shovel = -255
+    x_shovel = -300
     y_shovel = love.graphics.getHeight() - spade:getHeight() * scale - 800
     isPassed = false
     isSpade = false
@@ -17,7 +17,7 @@ function shovel.update(dt, speed)
     x_shovel = x_shovel - speed * dt
 
     if x_shovel < -300 then -- pour que la pelle revienne a sa position de depart a droite de l'ecran
-        x_shovel = love.graphics.getWidth() + spade:getWidth() * scale - 100
+        x_shovel = love.graphics.getWidth() + spade:getWidth() * scale + 400
         y_shovel = love.graphics.getHeight() - spade:getHeight() * scale - 800
         isPassed = false -- savoir si la pelle est passé par le point de descente
         isSpade = false -- savoir si la pelle est en train de se baisser
