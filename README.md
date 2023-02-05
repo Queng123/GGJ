@@ -11,7 +11,7 @@ git clone git@github.com:Queng123/GGJ.git
 
 ## install dependencies -> Love2D
 
-install Love2D from the [Love2D Official Website](https://love2d.org/)
+install Love2D from the [Love2D Official Website](https://love2d.org/)!
 
 ## run the game
 * ### Linux
