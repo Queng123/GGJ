@@ -19,3 +19,38 @@ function OsuFileReader.getInfo(filepath)
         return {}
     end
 end
+
+function OsuFileReader.getPosOfHits(table)
+    for i, v in ipairs(table) do
+        if string.find(v, "HitObjects") then
+            return i
+        end
+    end
+    return -1
+end
+
+function OsuFileReader.split(inputstr, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t={}
+    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
+
+function OsuFileReader.getHits(filename)
+    file = OsuFileReader.getInfo(filename)
+    pos = OsuFileReader.getPosOfHits(file)
+    hits = {}
+    for i = pos + 1, #file do
+        hitInfo = OsuFileReader.split(file[i], ",")
+        hit = {}
+        hit.x = hitInfo[1]
+        hit.y = hitInfo[2]
+        hit.time = hitInfo[3]
+        table.insert(hits, hit)
+    end
+    return hits
+end
