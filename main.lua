@@ -30,6 +30,7 @@ function love.update(dt)
         shovel.update(dt, speed)
         obstacles.update(dt, speed)
         root.update(dt, speed)
+        speed = 200 + 10 * score
     end
 end
 
