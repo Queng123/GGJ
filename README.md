@@ -7,7 +7,9 @@ The game is a 2D runner where you play the role of a lost root trying to find wa
 Enjoy!
 
 ## clone the repo
+```
 git clone git@github.com:Queng123/GGJ.git
+```
 
 ## install dependencies -> Love2D
 
