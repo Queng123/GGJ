@@ -1,13 +1,15 @@
 Button = {}
 
 local function closeAllButton()
-    resumeButton.active = false
+    playEndlessButton.active = false
+    playSongButton.active = false
     quitButton.active = false
     musicSlider.active = false
 end
 
 local function openAllButton()
-    resumeButton.active = true
+    playEndlessButton.active = true
+    playSongButton.active = true
     quitButton.active = true
     musicSlider.active = true
 end
@@ -93,13 +95,40 @@ local function DrawSliderButton(button)
     love.graphics.pop()
 end
 
+local function playEndless()
+    gaming = true
+    gamemode = gamemodeType.Endless
+    closeAllButton()
+end
+
+local function playSong()
+    gaming = true
+    if music then
+        love.audio.stop(music)
+        love.audio.play(music)
+    end
+    gamemode = gamemodeType.Song
+    closeAllButton()
+end
+
+local function actionPlayEndless()
+    closePause()
+    playEndless()
+end
+
+local function actionPlaySong()
+    closePause()
+    playSong()
+end
+
 function Button.load()
     font = love.graphics.newFont(30)
 
     ButtonType = {Classic = "Classic", Slider = "Slider"}
     DrawButtonFunction = {Classic = DrawClassicButton, Slider = DrawSliderButton}
 
-    resumeButton = createClassicButton({x = 1920 / 2 - 100, y = 350}, {x = 200, y = 100}, "Resume", closePause)
+    playEndlessButton = createClassicButton({x = 1920 / 2 - 100, y = 200}, {x = 200, y = 100}, "Play Endless", actionPlayEndless)
+    playSongButton = createClassicButton({x = 1920 / 2 - 100, y = 350}, {x = 200, y = 100}, "Play Song", actionPlaySong)
     musicSlider = createSliderButton({x = 1920 / 2 - 100, y = 550}, {x = 200, y = 20}, "Music", getReferenceMusicSlider, doNothing, updateMusicSlider)
     quitButton = createClassicButton({x = 1920 / 2 - 100, y = 650}, {x = 200, y = 100}, "Quit", closeGame)
 end
