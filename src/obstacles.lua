@@ -39,12 +39,6 @@ end
     end
     for i, water in ipairs(waters) do
         water.x = water.x - water.speed * dt
-        -- Colision between mouse and water
-        if mouse_x >= water.x and mouse_x <= water.x + 32 and
-        mouse_y >= water.y and mouse_y <= water.y + 32 then
-            table.remove(waters, i)
-            score = score + 1
-        end
     end
 end
 
