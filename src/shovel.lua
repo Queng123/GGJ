@@ -1,6 +1,6 @@
 shovel = {}
 
-local scale = 0.25
+local scale = 1
 
 function shovel.load()
     spade = love.graphics.newImage("assets/pelle.png")
