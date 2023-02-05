@@ -20,7 +20,7 @@ https://love2d.org/
 
 ## run the game
 * ### Linux
-love GGJ
+love PATH_TO_GGJ_FOLDER
 
 * ### Windows
 "PATH_TO_LOVE.exe" "PATH_TO_GGJ_FOLDER"
