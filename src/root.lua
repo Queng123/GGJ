@@ -2,7 +2,7 @@ root = {}
 points = {}
 
 function root.load()
-    points[1] = {x = 0, y = love.graphics.getHeight()}
+    points[1] = {x = 850, y = 560}
     love.graphics.setColor(0.6, 0.3, 0.1)
     love.graphics.setLineWidth(10)
 end
@@ -25,8 +25,8 @@ function root.update(dt, speed)
 end
 
 function root.draw()
-    love.graphics.setColor(70 / 256, 46 / 256, 1 / 256)
-    love.graphics.setLineWidth(10)
+    love.graphics.setColor(60 / 256, 28 / 256, 3 / 256)
+    love.graphics.setLineWidth(15)
     for i = 1, #points - 1 do
         love.graphics.line(points[i].x, points[i].y, points[i + 1].x, points[i + 1].y)
     end
