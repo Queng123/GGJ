@@ -25,7 +25,7 @@ function Collision.checkCollision()
             elseif (score > highScore[3]) then
                 highScore = {highScore[1], highScore[2], score}
             end
-            file_descriptor = io.open("save/score", "w")
+            file_descriptor = io.open("score.save", "w")
             file_descriptor:write(highScore[1] .. " " .. highScore[2] .. " " .. highScore[3])
             file_descriptor:close()
         end
@@ -42,7 +42,7 @@ function Collision.checkCollision()
             elseif (score > highScore[3]) then
                 highScore = {highScore[1], highScore[2], score}
             end
-            file_descriptor = io.open("save/score", "w")
+            file_descriptor = io.open("score.save", "w")
             file_descriptor:write(highScore[1] .. " " .. highScore[2] .. " " .. highScore[3])
             file_descriptor:close()
         end
