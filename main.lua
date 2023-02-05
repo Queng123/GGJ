@@ -34,11 +34,11 @@ function love.update(dt)
 end
 
 function love.draw()
+    parallaxe.draw()
+    obstacles.draw()
+    shovel.draw()
+    root.draw()
     if gaming then
-        parallaxe.draw()
-        obstacles.draw()
-        shovel.draw()
-        root.draw()
         love.graphics.printf(score, 50, 50, 150)
     else
         Button.draw(resumeButton)
