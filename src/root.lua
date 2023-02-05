@@ -1,5 +1,5 @@
 root = {}
-local points = {}
+points = {}
 
 function root.load()
     points[1] = {x = 0, y = love.graphics.getHeight()}

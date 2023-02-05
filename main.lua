@@ -3,6 +3,7 @@ require "src/parallaxe"
 require "src/obstacles"
 require "src/Button"
 require "src/root"
+require "src/Collision"
 
 music = love.audio.newSource("audio.mp3", "stream")
 love.audio.setVolume(1)
@@ -30,6 +31,7 @@ function love.update(dt)
         shovel.update(dt, speed)
         obstacles.update(dt, speed)
         root.update(dt, speed)
+        Collision.checkCollision()
         speed = 200 + 10 * score
     end
 end
