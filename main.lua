@@ -34,16 +34,13 @@ function love.update(dt)
 end
 
 function love.draw()
-    if gaming then
-        parallaxe.draw()
-        obstacles.draw()
-        shovel.draw()
-        root.draw()
-    else
-        Button.draw(resumeButton)
-        Button.draw(quitButton)
-        Button.draw(musicSlider)
-    end
+    parallaxe.draw()
+    obstacles.draw()
+    shovel.draw()
+    root.draw()
+    Button.draw(resumeButton)
+    Button.draw(quitButton)
+    Button.draw(musicSlider)
 end
 
 function love.mousepressed(x, y, btn, istouch)
