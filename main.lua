@@ -28,7 +28,7 @@ function love.update(dt)
     if gaming then
         parallaxe.update(dt, speed)
         shovel.update(dt, speed)
-        obstacles.update(dt)
+        obstacles.update(dt, speed)
         root.update(dt, speed)
     end
 end
