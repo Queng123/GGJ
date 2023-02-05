@@ -29,7 +29,7 @@ function root.updateSongMode(dt, speed)
     if mouseY < 350 then
         mouseY = 350
     end
-    mouseX = 200
+    mouseX = 850
     local lastPoint = points[#points]
     local nextX = lastPoint.x + (mouseX - lastPoint.x)
     local nextY = lastPoint.y + (mouseY - lastPoint.y) * dt * 2
