@@ -32,6 +32,7 @@ function love.update(dt)
         obstacles.update(dt, speed)
         root.update(dt, speed)
         Collision.checkCollision()
+        speed = 200 + 10 * score
     end
 end
 
