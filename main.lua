@@ -7,7 +7,7 @@ require "src/Collision"
 require "src/Gameover"
 require "src/highScore"
 
-music = love.audio.newSource("audio.mp3", "stream")
+music = love.audio.newSource("audio/audio.mp3", "stream")
 love.audio.setVolume(1)
 love.audio.play(music)
 
