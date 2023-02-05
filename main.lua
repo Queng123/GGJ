@@ -16,7 +16,7 @@ gamemodeType = {
 
 function love.load()
     love.window.setMode(1920, 1080)
-    love.window.setTitle("Game")
+    love.window.setTitle("We Löve Root!")
 
     readyToQuit = false
     gaming = false
