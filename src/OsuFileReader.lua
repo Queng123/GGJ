@@ -54,3 +54,7 @@ function OsuFileReader.getHits(filename)
     end
     return hits
 end
+
+function OsuFileReader.load(filename)
+    map = OsuFileReader.getHits(filename)
+end

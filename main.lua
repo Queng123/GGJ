@@ -4,6 +4,7 @@ require "src/obstacles"
 require "src/Button"
 require "src/root"
 require "src/Collision"
+require "src/OsuFileReader"
 
 music = love.audio.newSource("audio.mp3", "stream")
 love.audio.setVolume(1)
@@ -30,6 +31,7 @@ function love.load()
     obstacles.load()
     root.load()
     Button.load()
+    OsuFileReader.load("test.osu")
 end
 
 function love.update(dt)
