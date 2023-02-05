@@ -24,6 +24,24 @@ function root.update(dt, speed)
     end
 end
 
+function root.updateSongMode(dt, speed)
+    local mouseX, mouseY = love.mouse.getPosition()
+    if mouseY < 350 then
+        mouseY = 350
+    end
+    mouseX = 200
+    local lastPoint = points[#points]
+    local nextX = lastPoint.x + (mouseX - lastPoint.x)
+    local nextY = lastPoint.y + (mouseY - lastPoint.y) * dt * 2
+    table.insert(points, {x = nextX, y = nextY})
+    for i = 1, #points do
+        points[i].x = points[i].x - speed * dt
+    end
+    if points[1].x > love.graphics.getWidth() then
+        table.remove(points, 1)
+    end
+end
+
 function root.draw()
     love.graphics.setColor(60 / 256, 28 / 256, 3 / 256)
     love.graphics.setLineWidth(15)

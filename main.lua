@@ -39,9 +39,13 @@ function love.update(dt)
         parallaxe.update(dt, speed)
         shovel.update(dt, speed)
         obstacles.update(dt, speed)
-        root.update(dt, speed)
-        Collision.checkCollision()
-        speed = 200 + 10 * score
+        if gamemode == gamemodeType.endless then
+            root.update(dt, speed)
+            Collision.checkCollision()
+            speed = 200 + 10 * score
+        elseif gamemode == gamemodeType.song then
+            root.updateSongMode(dt, speed)
+        end
     end
 end
 

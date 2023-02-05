@@ -97,7 +97,7 @@ end
 
 local function playEndless()
     gaming = true
-    gamemode = gamemodeType.Endless
+    gamemode = gamemodeType.endless
     closeAllButton()
 end
 
@@ -107,7 +107,7 @@ local function playSong()
         love.audio.stop(music)
         love.audio.play(music)
     end
-    gamemode = gamemodeType.Song
+    gamemode = gamemodeType.song
     closeAllButton()
 end
 
