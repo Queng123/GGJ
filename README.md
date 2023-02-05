@@ -9,10 +9,9 @@ Enjoy!
 ## clone the repo
 git clone git@github.com:Queng123/GGJ.git
 
-## install dependencies -> Lua 5.4 and Love2D
+## install dependencies -> Love2D
 
-https://love2d.org/
-
+install Love2D from the ![Love2D Official Website](https://love2d.org/)
 
 ## run the game
 * ### Linux
