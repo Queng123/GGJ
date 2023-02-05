@@ -25,7 +25,7 @@ end
         table.insert(rocks, {x = rock_x, y = rock_y, speed = speeds})
     end
     for i, rock in ipairs(rocks) do
-        rock.x = rock.x - rock.speed * dt
+        rock.x = rock.x - speeds * dt
     end
     -- Water
     mouse_x, mouse_y = love.mouse.getPosition()
@@ -38,7 +38,7 @@ end
         table.insert(waters, {x = water_x, y = water_y, speed = speeds})
     end
     for i, water in ipairs(waters) do
-        water.x = water.x - water.speed * dt
+        water.x = water.x - speeds * dt
         -- Colision between mouse and water
         if mouse_x >= water.x and mouse_x <= water.x + 32 and
         mouse_y >= water.y and mouse_y <= water.y + 32 then
