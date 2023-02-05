@@ -16,12 +16,14 @@ function Collision.checkCollision()
         if points[#points].x >= rock.x and points[#points].x <= rock.x + 32 and
         points[#points].y >= rock.y and points[#points].y <= rock.y + 32 then
             gaming = false
+            lose = true
         end
     end
     for i, point in ipairs(points) do
         if point.x >= x_shovel and point.x <= x_shovel + 145 and
         point.y >= y_shovel and point.y <= y_shovel + 710 then
             gaming = false
+            lose = true
         end
     end
 end
