@@ -1,3 +1,7 @@
+require "src/root"
+require "src/shovel"
+require "src/parallaxe"
+
 Button = {}
 
 local function closeAllButton()
@@ -121,6 +125,17 @@ local function actionPlaySong()
     playSong()
 end
 
+local function resetGame()
+    openAllButton()
+    gaming = false
+    gamemode = gamemodeType.None
+    lose = false
+    root.load()
+    score = 0
+    x_shovel = -300
+    tree_scroll = 0
+end
+
 function Button.load()
     font = love.graphics.newFont(30)
 
@@ -131,9 +146,8 @@ function Button.load()
     playSongButton = createClassicButton({x = 1920 / 2 - 100, y = 350}, {x = 200, y = 100}, "Play Song", actionPlaySong)
     musicSlider = createSliderButton({x = 1920 / 2 - 100, y = 550}, {x = 200, y = 20}, "Music", getReferenceMusicSlider, doNothing, updateMusicSlider)
     quitButton = createClassicButton({x = 1920 / 2 - 100, y = 650}, {x = 200, y = 100}, "Quit", closeGame)
+    gameOverMenuButton = createClassicButton({x = 1920 / 2 - 100, y = 500}, {x = 200, y = 100}, "Menu", resetGame)
 end
-
-
 
 function Button.draw(button)
     if (button.active) then
