@@ -1,7 +1,6 @@
 parallaxe = {}
 
 local background = love.graphics.newImage("assets/grass.png")
-local dirt = love.graphics.newImage("assets/dirt.png")
 local cloud = love.graphics.newImage("assets/cloud.png")
 local s_tree = love.graphics.newImage("assets/tree.png")
 
@@ -26,7 +25,6 @@ function parallaxe.update(dt, speed)
 end
 
 function parallaxe.draw()
-    love.graphics.draw(dirt, 0, 0)
     love.graphics.draw(background, background_scroll, 0)
     love.graphics.draw(background, background_scroll + background:getWidth(), 0)
     love.graphics.draw(cloud, cloud_scroll, -100, 0, 0.2, 0.2)

@@ -17,6 +17,7 @@ gamemodeType = {
 function love.load()
     love.window.setMode(1920, 1080)
     love.window.setTitle("We Löve Root!")
+    love.graphics.setBackgroundColor(124 / 255, 73 / 255, 39 / 255)
 
     readyToQuit = false
     gaming = false
